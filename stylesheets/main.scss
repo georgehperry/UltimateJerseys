@@ -1,0 +1,138 @@
+// @import 'variables.scss';
+@import 'mixins.scss';
+
+body {
+    max-width: 100%;
+    font-family: 'Work Sans';
+
+    #hover-emphasis {
+        position: absolute;
+        top:0;
+        left:0;
+        width: 100%;
+        height: 100%;
+        background-color: #000022;
+        opacity: 0.6;
+        z-index: 1;
+        display: none;
+    }
+
+    .background-tri {
+        width: 0;
+    	height: 0;
+        position: absolute;
+        z-index: -1;
+    }
+    .tri-top-left {
+    	border-top: 0 solid #FFB8C9;
+        border-right: 0 solid transparent;
+        top: 0;
+        left: 0;
+        -webkit-transition: border-top 2s;
+        -webkit-transition: border-right 2s;
+        transition: border-top 2s;
+        transition: border-right 2s;
+    }
+    .tri-top-left-transition {
+        border-top: 700px solid #FFB8C9;
+        border-right: 700px solid transparent;
+    }
+    .tri-top-right {
+        border-bottom: 0 solid #FFB8C9;
+        border-left: 0 solid transparent;
+        bottom: 0;
+        right: 0;
+        -webkit-transition: border-bottom 2s;
+        -webkit-transition: border-left 2s;
+        transition: border-bottom 2s;
+        transition: border-left 2s;
+    }
+    .tri-top-right-transition {
+        border-bottom: 700px solid #FFB8C9;
+        border-left: 700px solid transparent;
+    }
+
+    $jersey-transition-duration: 1.9s;
+    .jersey {
+        img {
+            max-width: 70%;
+            max-height: 70%;
+        }
+    }
+    .kit-lgw {
+        position: absolute;
+        $lgw-top: 10%;
+        $lgw-left: 10%;
+        left: $lgw-left;
+        top: $lgw-top;
+
+        @include animation($lgw-left, $lgw-top + 5, lgw, $jersey-transition-duration, ease-in-out, 0s);
+
+
+    }
+    .kit-camden {
+        $camden-top: 35%;
+        $camden-left: 41%;
+        position: absolute;
+        top: $camden-top;
+        left: $camden-left;
+
+        @include animation($camden-left, $camden-top - 4, camden, $jersey-transition-duration, ease-in-out, 0s);
+
+        @include emphasis(kit-camden, 0.5);
+
+        &:hover {
+            .kit-nz {
+                opacity: 0.4;
+            }
+        }
+
+    }
+    .kit-nz {
+        position: absolute;
+        $nz-top: 12%;
+        $nz-left: 70%;
+        width: 26%;
+        top: $nz-top;
+        left: $nz-left;
+
+        @include animation($nz-left, $nz-top + 5, nz, $jersey-transition-duration, ease-in-out, 0);
+    }
+
+    .jersey-text {
+        position: relative;
+        z-index: 2;
+        color: #999;
+        text-align: center;
+        display: none;
+        text-transform: uppercase;
+        font-size: 2.2em;
+        font-weight: 600;
+        color: #FFB8C9;
+    }
+
+    .lgw, .camden, .nz {
+        width: 33%;
+        display: inline-block;
+    }
+    .lgw {
+        .lgw-text {
+            padding-top: 95%;
+            padding-left: 15%;
+        }
+    }
+
+    .camden {
+        .camden-text {
+            padding-top: 35%;
+        }
+    }
+
+    .nz {
+        .nz-text {
+            padding-top: 95%;
+            padding-right: 15%;
+        }
+    }
+
+}

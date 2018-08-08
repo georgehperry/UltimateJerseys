@@ -1,0 +1,49 @@
+
+/*  Shirt Animation */
+@mixin keyframes($left, $top, $name) {
+    @-webkit-keyframes #{$name} {
+        50% {
+            -webkit-animation-timing-function: ease-in-out;
+            left: $left;
+            top: $top;
+        }
+    }
+    @-moz-keyframes #{$name} {
+        50% {
+            -moz-animation-timing-function: ease-in-out;
+            left: $left;
+            top: $top;
+        }
+    }
+    @-o-keyframes #{$name} {
+        50% {
+            -o-animation-timing-function: ease-in-out;
+            left: $left;
+            top: $top;
+        }
+    }
+    @keyframes #{$name} {
+        50% {
+            animation-timing-function: ease-in-out;
+            left: $left;
+            top: $top;
+        }
+    }
+}
+
+@mixin animation($left, $top, $name, $duration, $timing, $delay) {
+    @include keyframes($left, $top, $name);
+
+    animation-name: $name;
+    animation-duration: $duration;
+    animation-timing-function: $timing;
+    animation-delay: $delay;
+}
+
+@mixin emphasis($name, $opacity) {
+    &:hover {
+        .jersey {
+            opacity: $opacity;
+        }
+    }
+}
